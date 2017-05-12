@@ -18,10 +18,19 @@ submitButton.addEventListener('click', (e) => {
 wishList.addEventListener('click', (e) => {
   if (e.target.className === "remove-button"){
     const wishText = (e.target.parentNode.firstChild.data)
-    deleteCard(wishText)
+    deleteWish(wishText)
     renderWishes(wishArray)
   }
 })
+
+// wishList.addEventListener('keyup', (e) => {
+//   if (e.target.tagName === "P"){
+//     if (e.which === 13) {
+//       e.preventDefault()
+//       console.log('hey')
+//     }
+//   }
+// })
 
 const appendItem = (newWish) => {
   const inputValue = wishInput.value
@@ -35,7 +44,7 @@ const clearInput = () => {
   wishInput.value = ""
 }
 
-const deleteCard = (text) => {
+const deleteWish = (text) => {
   for (let i = 0; i < wishArray.length; i++) {
       const wish = wishArray[i]
       if (text == wish) {
